@@ -63,6 +63,12 @@ def stop()
         $cumulative_time = last_time.to_f + $elapsed_time
         File.open('javascript.txt', 'a') do |file|
             file.write("\n" + $cumulative_time.to_s) end
+    when "test"
+        whole_file = File.open('test.txt').to_a
+        last_time = whole_file.last()
+        $cumulative_time = last_time.to_f + $elapsed_time
+        File.open('test.txt', 'a') do |file|
+            file.write("\n" + $cumulative_time.to_s) end
         else
             puts "\n*****Not a recognised language, try again.*****\n"
             stop()
@@ -133,6 +139,15 @@ def manual()
         javascript_time = last_time.to_f + how_long_javascript_sec
         File.open('javascript.txt', 'a') do |file|
             file.write("\n" + javascript_time.to_s) end
+          when "test"
+              puts "How many minutes of Test coding would you like to add?"
+              how_long_test_min = gets.chomp.to_f
+              how_long_test_sec = how_long_test_min * 60
+              whole_file = File.open('test.txt').to_a
+              last_time = whole_file.last()
+              test_time = last_time.to_f + how_long_test_sec
+              File.open('test.txt', 'a') do |file|
+                  file.write("\n" + test_time.to_s) end            
     end
 end
 which_action($choice)
