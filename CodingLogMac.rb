@@ -1,7 +1,5 @@
-
-def run_program()
-  $endprogram = 0
-  until $endprogram == 1 do
+$endprogram = 0
+until $endprogram == 1 do
 
   puts "What would you like to do? \n\n    1. Start\n    2. Stop\n    3. Show Times\n    4. Manual Input\n    5. Exit"
   choice = gets.chomp.downcase
@@ -152,11 +150,6 @@ def run_program()
     end
   which_action(choice)
   end
-
-end
-
-
-run_program()
 
 
 #Optional Extras: Add feature to block out 1. Add after it is pressed to stop it being pressed again before stopping.
